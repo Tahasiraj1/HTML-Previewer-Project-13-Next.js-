@@ -24,7 +24,7 @@ export default function HTMLPreview() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen overflow-auto text-foreground"
         style={{
-            backgroundImage: `url('/htmlpre2.png')`,
+            backgroundImage: `url('/htmlpre2.jpg')`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
         }}
