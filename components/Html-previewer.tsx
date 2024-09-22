@@ -21,6 +21,10 @@ export default function HTMLPreview() {
         setPreviewHtml("");
     };
 
+    const handleCopyToClipboard = (): void => {
+        navigator.clipboard.writeText(previewHtml);
+    }
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen overflow-auto text-foreground"
         style={{
@@ -30,7 +34,7 @@ export default function HTMLPreview() {
         }}
         >
             {/* Center the HTML previewer card within the screen */}
-            <div className="w-11/12 max-w-2xl p-6 rounded-3xl shadow-2xl bg-white bg-green-200 bg-opacity-90">
+            <div className="w-11/12 max-w-2xl p-6 rounded-3xl shadow-2xl bg-green-200 bg-opacity-90">
                 <h1 className="text-black text-3xl font-bold mb-4 text-center">HTML Previewer</h1>
                 <p className="text-gray-900 text-xl font-bold font-serif mb-4 text-center">
                     Enter your HTML code and see the preview.
@@ -63,6 +67,14 @@ export default function HTMLPreview() {
                 {/* Div to display the HTML preview */}
                 <div className="mt-4 p-4 rounded-lg text-black font-bold text-lg border-gray-400 border-2">
                     <div dangerouslySetInnerHTML={{ __html: previewHtml }} />
+                </div>
+                <div className="flex justify-center">
+                    <Button
+                    className="mt-4 text-md active:scale-95 transition-transform duration:300 w-full rounded-3xl bg-blue-700 hover:bg-blue-600 shadow-xl"
+                    onClick={handleCopyToClipboard}
+                    >
+                        Copy to Clipboard
+                    </Button>
                 </div>
             </div>
         </div>
